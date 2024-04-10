@@ -1,0 +1,46 @@
+.cellActive{
+    margin: 1px;
+    background-color: yellow;
+    height: 28px;
+    width: 28px;
+    border-radius: 3px;
+    transition: background-color 0.2s ease;
+}
+
+.cellEmpty{
+    margin: 1px;
+    background-color: blue;
+    height: 28px;
+    width: 28px;
+    border-radius: 3px;
+    transition: background-color 0.2s ease;
+}
+
+.cellWall{
+    margin: 1px;
+    background-color: gray;
+    height: 28px;
+    width: 28px;
+    border-radius: 3px;
+    transition: background-color 0.2s ease;
+}
+
+.cellStart{
+    margin: 1px;
+    font-weight: bold;
+    background-color: green;
+    height: 28px;
+    width: 28px;
+    border-radius: 3px;
+    transition: background-color 0.2s ease;
+}
+
+.cellDestination{
+    margin: 1px;
+    font-weight: bold;
+    background-color: rgb(214, 128, 47);
+    height: 28px;
+    width: 28px;
+    border-radius: 3px;
+    transition: background-color 0.2s ease;
+}
