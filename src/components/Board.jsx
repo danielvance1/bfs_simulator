@@ -309,6 +309,7 @@ function Board(){
     return (
         <>
             <h1>Breadth-first search simulator</h1>
+            <p>Tip: you can drag build items to build faster!</p>
             <div className={classes.boardAndControls}>
                 <Maps useGridFromDatabase={useGridFromDatabase} startGood={hasStart} endGood={hasEnd} gridBoard={grid}/>
                 <div className={classes.board} 
@@ -357,14 +358,14 @@ function Board(){
                     }
                     {!isEditing &&
                         <>
-                            <button className={classes.control} onClick={() => {setIsEditing(true); removeVirus();}}>
-                                <span>Edit <MdEdit /></span>
+                            <button className={classes.controlStart} onClick={step}>
+                                <span>Next <GrLinkNext /></span>
                             </button>
                             <button className={classes.control} onClick={removeVirus}>
                                 <span>Restart <GrPowerReset /></span>
                             </button>
-                            <button className={classes.control} onClick={step}>
-                                <span>Next <GrLinkNext /></span>
+                            <button className={classes.control} onClick={() => {setIsEditing(true); removeVirus();}}>
+                                <span>Edit <MdEdit /></span>
                             </button>
                         </>
                     }

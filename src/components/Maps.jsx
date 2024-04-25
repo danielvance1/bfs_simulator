@@ -8,6 +8,42 @@ import { useState, useEffect } from "react"
 function Maps(props){
     const [grids, setGrids] = useState([])
 
+    const fetchMaps = async () => {
+        try{
+            
+            const response = await fetch(
+                "https://meal-app-34d27-default-rtdb.firebaseio.com/maps.json"
+            )
+
+            if(!response.ok){
+                throw new Error("something went wrong!!")
+            }
+
+            const responseData = await response.json()
+
+            //console.log(responseData)
+
+            const loadedMaps = []
+            for(const key in responseData){
+
+                loadedMaps.push({
+                    id: key,
+                    title: responseData[key].title,
+                    stringBoard: responseData[key].stringBoard
+                })
+
+                console.log(loadedMaps[loadedMaps.length-1])
+            }
+
+            setGrids(loadedMaps)
+        }
+        catch(error){
+            
+        }
+    }
+
+    
+
     function uploadGrid(){
         const titleValue = document.getElementById('title-input').value.trim();
 
@@ -43,56 +79,46 @@ function Maps(props){
                 throw new Error('there was an error adding the map');
             }
             console.log('Map added');
-            window.location.reload();
+            // window.location.reload();
+            fetchMaps();
         })
         .catch(error => {
-            console.error('there was an error adding the recipe');
+            console.error('there was an error adding the map: ' + error);
         });
     }
 
     useEffect(() => {
-        const fetchMaps = async () => {
-            try{
-                
-                const response = await fetch(
-                    "https://meal-app-34d27-default-rtdb.firebaseio.com/maps.json"
-                )
-
-                if(!response.ok){
-                    throw new Error("something went wrong!!")
-                }
-
-                const responseData = await response.json()
-
-                //console.log(responseData)
-
-                const loadedMaps = []
-                for(const key in responseData){
-
-                    loadedMaps.push({
-                        id: key,
-                        title: responseData[key].title,
-                        stringBoard: responseData[key].stringBoard
-                    })
-
-                    console.log(loadedMaps[loadedMaps.length-1])
-                }
-
-                setGrids(loadedMaps)
-            }
-            catch(error){
-                
-            }
-        }
+        
 
         fetchMaps()       
     }, [])
+
+    function deleteGridFromDatabase(id){
+        const deleteUrl = `https://meal-app-34d27-default-rtdb.firebaseio.com/maps/${id}.json`;
+
+        fetch(deleteUrl, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('couldnt delete the item');
+            }
+            console.log('Item deleted successfully');
+            fetchMaps()  
+        })
+        .catch(error => {
+            console.error('error deleting the item');
+        });
+    }
 
     console.log("grid: " + grids)
 
     return <div className={classes.maps}>
         <NewMap startGood={props.startGood} endGood={props.endGood} gridBoard={props.gridBoard} upload={uploadGrid}/>
-        <MapList grids={grids} useGridFromDatabase={props.useGridFromDatabase}/>
+        <MapList grids={grids} deleteGridFromDatabase={deleteGridFromDatabase} useGridFromDatabase={props.useGridFromDatabase}/>
     </div>
 }
 

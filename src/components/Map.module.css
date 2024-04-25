@@ -11,22 +11,32 @@
 
 .controls{
     /* background-color: purple; */
-    width: 155px;
-    height: 85px;
+    width: 145px;
+    height: 75px;
     display: flex;
     flex-wrap: wrap;
+    padding:5px;
 }
 
 .title{
+    background-color: gray;
+    border-radius: 5px;
     margin:0px;
-    width: 155px;
-    height: 30px;
+    width: 145px;
+    height: 20px;
 }
 
 .useGridButton{
-    padding:4px;
-    margin:5px;
     width: 145px;
-    height: 30px;
+    height: 25px;
+    padding:0px;
+    background-color: green;
+}
+
+.deleteGridButton{
+    width: 145px;
+    height: 25px;
+    padding:0px;
+    background-color: red;
 }
 
