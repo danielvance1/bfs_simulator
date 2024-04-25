@@ -9,6 +9,7 @@ function Cell(props){
 
     if(props.active === "active") currClass = classes.cellActive
     if(props.active === "wall") currClass = classes.cellWall
+    if(props.active === "path") currClass = classes.cellPath
     if(props.active ===  "start") {
         currClass = classes.cellStart
         cellContent = "S"
