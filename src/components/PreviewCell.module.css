@@ -1,0 +1,23 @@
+.previewCellEmpty,
+.previewCellWall,
+.previewCellStart,
+.previewCellDestination{
+    height: 4px;
+    width: 4px;
+}
+
+.previewCellEmpty{
+    background-color: blue;
+}
+
+.previewCellWall{
+    background-color: gray;
+}
+
+.previewCellStart{
+    background-color: green;
+}
+
+.previewCellDestination{
+    background-color: rgb(214, 128, 47);
+}

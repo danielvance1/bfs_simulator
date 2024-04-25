@@ -1,0 +1,32 @@
+.map{
+    width: 240px;
+    height: 85px;
+    border-radius: 10px;
+    margin: 10px;
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: rgb(51,51,51);
+}
+
+.controls{
+    /* background-color: purple; */
+    width: 155px;
+    height: 85px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.title{
+    margin:0px;
+    width: 155px;
+    height: 30px;
+}
+
+.useGridButton{
+    padding:4px;
+    margin:5px;
+    width: 145px;
+    height: 30px;
+}
+

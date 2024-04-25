@@ -283,11 +283,34 @@ function Board(){
         }
     }
 
+    function useGridFromDatabase(gridFromDatabase){
+        setGrid(gridFromDatabase)
+        setMazeSolved(false)
+
+        let tmpDirGrid = Array.from({ length: rows }, () => Array(cols).fill(-1));
+        setDirGrid(tmpDirGrid)
+
+        for(let i = 0; i < rows; i++){
+            for(let j = 0; j < cols; j++){
+                if(gridFromDatabase[i][j] === "start"){
+                    setHasStart(true)
+                    setStartRow(i)
+                    setStartCol(j)
+                }
+                else if(gridFromDatabase[i][j] === "destination"){
+                    setHasEnd(true)
+                    setEndRow(i)
+                    setEndCol(j)
+                }
+            }
+        }
+    }
+
     return (
         <>
             <h1>Breadth-first search simulator</h1>
             <div className={classes.boardAndControls}>
-                <Maps startGood={hasStart} endGood={hasEnd}/>
+                <Maps useGridFromDatabase={useGridFromDatabase} startGood={hasStart} endGood={hasEnd} gridBoard={grid}/>
                 <div className={classes.board} 
                     onMouseDown={mouseClickedHandler} 
                     onMouseUp={mouseUnclickedHandler}
