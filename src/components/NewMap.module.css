@@ -1,0 +1,39 @@
+.newMap{
+    width: 300px;
+    display: inline-block;
+    /* background-color: pink; */
+}
+
+.mapName{
+    height: 35px;
+    width: 280px;
+    margin: 5px;
+    border-radius: 10px;
+    font-size: 16px;
+    padding-left: 10px;
+}
+
+.saveMap{
+    height: 35px;
+    width: 280px;
+    margin: 5px;
+    border-radius: 10px;
+    font-size:16px;
+    padding: 8px;
+    background-color: green;
+}
+
+.disabledSaveMap{
+    height: 35px;
+    width: 280px;
+    margin: 5px;
+    border-radius: 10px;
+    font-size:16px;
+    padding: 8px;
+}
+
+.error{
+    color:red;
+    font-size: 12px;
+    line-height: 12px;
+}

@@ -1,0 +1,8 @@
+.maps{
+    height: 630px;
+    width: 300px;
+    margin: 20px;
+    /* background-color: purple; */
+    display: flex;
+    flex-wrap: wrap;
+}

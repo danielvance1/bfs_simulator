@@ -3,4 +3,49 @@
     flex-wrap: wrap;
     width:630px;
     height:630px;
+    margin:20px;
+}
+
+.error{
+    color:red;
+    font-size: 12px;
+    line-height: 12px;
+}
+
+.controls{
+    width: 100px;
+    height:630px;
+    padding:20px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.control,
+.controlEnd,
+.controlStart,
+.controlWall{
+    margin:5px;
+    width: 90px;
+    height:90px;
+    padding:5px;
+}
+
+.controlEnd{
+    background-color: rgb(214, 128, 47);
+}
+
+.controlStart{
+    background-color: green;
+}
+
+.controlWall{
+    background-color: gray;
+}
+
+.boardAndControls{
+    display: flex;
+    flex-wrap: wrap;
+    height:630px;
+    width:1150px;
 }
