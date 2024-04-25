@@ -1,0 +1,7 @@
+.preview{
+    height:84px;
+    width:84px;
+    background-color: black;
+    display: flex;
+    flex-wrap: wrap;
+}
